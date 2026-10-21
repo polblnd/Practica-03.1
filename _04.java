@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class _04 {
 	public static String comprimir(String prueba) {
 		
@@ -32,8 +34,15 @@ public class _04 {
 	}
 
 	public static void main(String[] args) {
-		String prueba = "aa bb cc dd eeee ffffgh";
-		String resultado = comprimir(prueba);
+		
+		Scanner cadena = new Scanner(System.in);
+		
+		System.out.println("Compresión de caracteres consecutuvos");
+		System.out.println("Ingresa la cadena a comprimir");
+		
+		
+		String textito = cadena.nextLine();
+		String resultado = comprimir(textito);
 		System.out.println(resultado);
 	}
 }
