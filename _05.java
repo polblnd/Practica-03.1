@@ -1,14 +1,8 @@
+import java.util.Scanner;
+
 public class _05 {
-	
-	public static void main (String[] args){
-		String palabra = "récó!.;nócér!";
-		String resultado;
-		Boolean esPalindromo =true;
-	
-	
-		StringBuilder word = new StringBuilder(palabra.trim().toLowerCase());
-		StringBuilder palindromo = new StringBuilder("récóndfgdfcér".trim().toLowerCase());
-		
+
+	public static StringBuilder purificarTexto(StringBuilder word){	
 		for (int i = 0; i < word.length(); i++){
 			char caracterespecial = word.charAt(i);
 
@@ -36,51 +30,41 @@ public class _05 {
 				i--;
 			}
 		}
-		for (int i = 0; i < palindromo.length(); i++){
-			char caracterespecial = palindromo.charAt(i);
-
-			if(caracterespecial == 'á') {
-				palindromo.deleteCharAt(i);
-				palindromo.insert(i, 'a');
-			}else if(caracterespecial == 'é') {
-				palindromo.deleteCharAt(i);
-				palindromo.insert(i, 'e');
-			}else if(caracterespecial == 'í') {
-				palindromo.deleteCharAt(i);
-				palindromo.insert(i, 'i');
-			}else if(caracterespecial == 'ó') {
-				palindromo.deleteCharAt(i);
-				palindromo.insert(i, 'o');
-			}else if(caracterespecial == 'ú') {
-				palindromo.deleteCharAt(i);
-				palindromo.insert(i,'u');
-			}
-
-			caracterespecial = palindromo.charAt(i);
-
-			if(caracterespecial == ' ' || caracterespecial == ',' || caracterespecial == '.' || caracterespecial == ';' || caracterespecial == '¡' ||caracterespecial == '!' || caracterespecial =='¿' || caracterespecial == '?'){
-				palindromo.deleteCharAt(i);
-				i--;
-			}
-		}
-
-
-		palindromo.reverse();
-
-
-		// Prueba
-		System.out.println(palabra);
-		System.out.println(word);
-		System.out.println("reconocer");
-		System.out.println(palindromo);
-		if( word.toString().equals(palindromo.toString())){
-			System.out.println(esPalindromo);
-		}else{
-			esPalindromo =false;
-			System.out.println(esPalindromo);
-		}
-
-
+		return word;
 	}
 
+	public static boolean esPalindromo(String palabraPalindromo){
+
+		boolean esPalindromo = false;
+
+		StringBuilder word = new StringBuilder(palabraPalindromo.trim().toLowerCase());
+		word = purificarTexto(word);
+		
+		if (word.length() == 0) {
+			return false;
+		}
+
+		StringBuilder palindromo = new StringBuilder(word.toString());
+		
+		word.reverse();
+
+		if( word.toString().equals(palindromo.toString())){
+			esPalindromo = true;
+		}else{
+			esPalindromo =false;
+		}
+
+		return esPalindromo;
+	}
+
+	public static void main(String[] args){
+		Scanner usuario = new Scanner(System.in);
+
+		System.out.println("Ingresa tu frase o palabra ");
+		String palabraPalindromo = usuario.nextLine();
+
+		boolean resultado = esPalindromo(palabraPalindromo);
+		System.out.println(resultado);
+
+	}
 }
