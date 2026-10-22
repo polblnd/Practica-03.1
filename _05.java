@@ -7,7 +7,7 @@ public class _05 {
 	
 	
 		StringBuilder word = new StringBuilder(palabra.trim().toLowerCase());
-		StringBuilder palindromo = new StringBuilder("reconocer".trim().toLowerCase());
+		StringBuilder palindromo = new StringBuilder("récóndfgdfcér".trim().toLowerCase());
 		
 		for (int i = 0; i < word.length(); i++){
 			char caracterespecial = word.charAt(i);
@@ -36,8 +36,36 @@ public class _05 {
 				i--;
 			}
 		}
+		for (int i = 0; i < palindromo.length(); i++){
+			char caracterespecial = palindromo.charAt(i);
 
-		word.reverse();
+			if(caracterespecial == 'á') {
+				palindromo.deleteCharAt(i);
+				palindromo.insert(i, 'a');
+			}else if(caracterespecial == 'é') {
+				palindromo.deleteCharAt(i);
+				palindromo.insert(i, 'e');
+			}else if(caracterespecial == 'í') {
+				palindromo.deleteCharAt(i);
+				palindromo.insert(i, 'i');
+			}else if(caracterespecial == 'ó') {
+				palindromo.deleteCharAt(i);
+				palindromo.insert(i, 'o');
+			}else if(caracterespecial == 'ú') {
+				palindromo.deleteCharAt(i);
+				palindromo.insert(i,'u');
+			}
+
+			caracterespecial = palindromo.charAt(i);
+
+			if(caracterespecial == ' ' || caracterespecial == ',' || caracterespecial == '.' || caracterespecial == ';' || caracterespecial == '¡' ||caracterespecial == '!' || caracterespecial =='¿' || caracterespecial == '?'){
+				palindromo.deleteCharAt(i);
+				i--;
+			}
+		}
+
+
+		palindromo.reverse();
 
 
 		// Prueba
