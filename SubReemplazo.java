@@ -24,10 +24,12 @@ public class SubReemplazo {
 		Scanner cadena = new Scanner(System.in);
 
 		System.out.println("Ingresa el texto");
-		String texto =  cadena.nextLine();
+		String texto1 =  cadena.nextLine();
+		String texto = texto1.toLowerCase();
 
 		System.out.println("Texto que deseas reemplazar");
-		String oldcadena = cadena.nextLine();	
+		String oldcadena1 = cadena.nextLine();	
+		String oldcadena = oldcadena1.toLowerCase();
 
 		System.out.println("Ingresa nuevo texto de reemplazo");
 		String newcadena =  cadena.nextLine();	
