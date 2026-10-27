@@ -1,0 +1,40 @@
+/**
+ * La clase {@code DemostracionStringBuilder} muestra el uso y comportamiento 
+ * de diversos metodos de manipulacion de cadenas de la clase {@link StringBuilder} 
+ * en Java, tales como eliminacion, insercion, inversion y reemplazo de caracteres, 
+ * ademas de consultar su longitud y capacidad.
+ */
+public class DemostracionStringBuilder {
+
+    /**
+     * Punto de entrada principal del programa. Ejecuta la secuencia de operaciones 
+     * sobre el objeto {@link StringBuilder} e imprime los resultados en consola.
+     *
+     * @param args Argumentos de la linea de comandos (no utilizados).
+     */
+    public static void main(String[] args) {
+        // Inicializa un StringBuilder con el texto "ABCDE"
+        StringBuilder sb = new StringBuilder("ABCDE");
+
+        // Elimina los caracteres desde el indice 1 (inclusive) hasta el 4 (exclusive): remueve "BCD", queda "AE"
+        sb.delete(1, 4);
+
+        // Inserta la cadena "xyz" en la posicion de indice 1: pasa de "AE" a "AxyzE"
+        sb.insert(1, "xyz");
+
+        // Invierte la secuencia de caracteres: pasa de "AxyzE" a "EzyxA"
+        sb.reverse();
+
+        // Reemplaza los caracteres desde el indice 1 hasta el 4 por "-": reemplaza "zyx" por "-", queda "E-A"
+        sb.replace(1, 4, "-");
+
+        // Imprime en consola el contenido final del StringBuilder ("E-A")
+        System.out.println(sb);
+
+        // Imprime el numero de caracteres actuales en el StringBuilder (3)
+        System.out.println(sb.length());
+
+        // Imprime la capacidad total de almacenamiento reservada en memoria (21)
+        System.out.println(sb.capacity());
+    }
+}
