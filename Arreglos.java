@@ -3,8 +3,8 @@ public class Arreglos {
 	public static int sumaArreglo(int[] numeros) {
 		int suma = 0; 
 		
-		for (int i = 0; i < numeros.length; i++) {
-			suma += numeros[i];
+		for (int i : numeros) {
+			suma += i;
 		}
 		return suma;
 	}
