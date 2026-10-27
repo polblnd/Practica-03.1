@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class CadenasBinarias {
 
 	public static String addBinary(String a, String b) {
@@ -41,15 +43,25 @@ public class CadenasBinarias {
 	}
 
 	public static void main(String[] args) {
-		String a = "1010";
-		String b = "1011";
+		Scanner bit = new Scanner(System.in);
+		
+		System.out.println("\nIngresa el valor de tu primer numero binario");
+		String a = bit.nextLine();
+		while (a.length() < 1 || a.length() > 10000 ) {
+			System.out.println("\n\n\nIngresa un numero binario con mas de 1 dígito y menos de 10000 dígitos");
+			 a = bit.nextLine();
+		}
+
+		System.out.println("\n\nIngresa el valor de tu segundo numero binario");
+		String b = bit.nextLine();
+		while (b.length() < 1 || b.length() > 10000 ) {
+			System.out.println("\n\n\nIngresa un numero binario con mas de 1 dígito y menos de 10000 dígitos");
+			 b = bit.nextLine();
+		}
 
 		String suma = addBinary(a, b);
 	
-		System.out.println(a);
-	
-		System.out.println(b);
-	
+		System.out.print("\nEl resultado es: ");
 		System.out.println(suma);
 
 	}
